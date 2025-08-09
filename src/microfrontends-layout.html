@@ -1,0 +1,59 @@
+<single-spa-router base="/">
+  <!-- <nav>
+    <ul>
+      <li>
+        <a href="/" onclick="singleSpaNavigate(event)">Home</a>
+      </li>
+      <li>
+        <a href="/angular" onclick="singleSpaNavigate(event)">Angular</a>
+      </li>
+      <li>
+        <a href="/vue" onclick="singleSpaNavigate(event)">Vue</a>
+      </li>
+      <li>
+        <a href="/react" onclick="singleSpaNavigate(event)">React</a>
+      </li>
+      <li>
+        <a href="/svelte" onclick="singleSpaNavigate(event)">Svelte</a>
+      </li>
+    </ul>
+  </nav> -->
+
+  <nav>
+    <application name="@actionanand/single-spa-nav"></application>
+  </nav>
+
+  <div id="single-spa-load-error"></div>
+
+  <route path="/" exact>
+    <application name="@actionanand/single-spa-vanilla-js" loader="spaLoader"></application>
+  </route>
+
+  <route path="angular">
+    <application name="single-spa-angular" loader="spaLoader" props="angTitle"></application>
+  </route>
+
+  <route path="react">
+    <application name="@actionanand/single-spa-react" loader="spaLoader" props="reactTitle, customProp1"></application>
+  </route>
+
+  <route path="vue">
+    <application name="@actionanand/single-spa-vue" loader="spaLoader" props="vueTitle"></application>
+  </route>
+
+  <route path="svelte">
+    <application name="@actionanand/single-spa-svelte" loader="spaLoader"></application>
+  </route>
+
+  <redirect from="vanilla" to="/"></redirect>
+
+  <!-- <application name="nav" error="navError"></application> -->
+
+  <route default>
+    <application name="@actionanand/single-spa-404" loader="spaLoader"></application>
+  </route>
+
+  <footer>
+    <application name="@actionanand/single-spa-footer"></application>
+  </footer>
+</single-spa-router>
